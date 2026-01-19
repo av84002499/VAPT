@@ -87,5 +87,8 @@ Windows 11
 
 ### New Password
 ### Confirm New Password
-![17](https://github.com/user-attachments/assets/a91be4cd-0e20-4dd3-ac81-1c54e24cb515)
+
+![WhatsApp Image 2026-01-20 at 1 01 20 AM](https://github.com/user-attachments/assets/0cfc9d27-c3d7-4218-8f87-33886142a313)
+![17](https://github.com/user-attachments/assets/162fc021-1732-4e7f-b4fb-76673afa92da)
+
 
