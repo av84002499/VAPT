@@ -77,6 +77,8 @@ Windows 11
 
 ## Step 11
 ### control userpasswords2
+![WhatsApp Image 2026-01-20 at 1 01 20 AM](https://github.com/user-attachments/assets/30f9f9b4-851b-4bbd-b570-0f457d34a941)
+
 ![15](https://github.com/user-attachments/assets/87bbe6e0-5169-4ff9-9fbb-24dfa8871a1f)
 
 ---
@@ -88,7 +90,7 @@ Windows 11
 ### New Password
 ### Confirm New Password
 
-![WhatsApp Image 2026-01-20 at 1 01 20 AM](https://github.com/user-attachments/assets/0cfc9d27-c3d7-4218-8f87-33886142a313)
 ![17](https://github.com/user-attachments/assets/162fc021-1732-4e7f-b4fb-76673afa92da)
+
 
 
