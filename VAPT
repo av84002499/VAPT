@@ -1,0 +1,55 @@
+**subdomain**
+
+Subfinder =(subfinder-d sitName -all -o filename.txt 
+
+**amass**
+amass= (amass enum -d sitName filename.txt
+sudo systemctl restart snapd apparmor
+sudo systemctl restart snapd
+
+amass enum -d sitname -o filename.txt
+
+**Flitter amass data**
+grep -E '\b([a-zA-zA-zA-Z0-9_-]+\.)+sitname\.com\b' amass.txt > amass_final.txt
+
+grep -oE '\b([a-zA-zA-zA-Z0-9_-]+\.)+sitname\.com\b' amass.txt > amass_final.txt
+
+**DNSX**
+dnsx -d sitname -w/usr/share/wordlists/seclists/discovery/DNS/subdomains - toptmillion -5000.txt| tee ~ fileName
+
+**Flitter All subdomain**
+
+cat amass_final.txt dnsx.txt subfinder.txt | sort -u > final_subdomains.txt
+
+**HTTPS**
+export PATH = $HOME /go/bin: $ PATH source ~ / .zshrc
+which httpx
+
+cat final_subdomains.txt | httpx -o targets.txt -status-code -location -title -tech-detect
+
+**Port scan**
+
+Nmap - sudo nmap -sS -sV sitName
+naabu - sudo -host SitName
+
+**Directory Bruteforcing**
+
+Feroxbuster
+
+feroxbuster -u sitName -w /usr/share/wordlists/seclists/Discovery/web-content/raft-samll-directories.txt -- threads 100 -c 404
+
+gobuster dir -u sitName -w /usr/share/wordlists/Discovery /Web-content |common.txt -o gobuster.results.txt
+
+**Firewall**
+
+wafwoof sitName
+
+**Bug Finding**
+
+nuclei
+nuclri -target sitName
+
+katana -js -u sitName -o katana.txt -aff
+
+
+
