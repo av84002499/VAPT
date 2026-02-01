@@ -1,55 +1,72 @@
 **subdomain**
 
-Subfinder =(subfinder-d sitName -all -o filename.txt 
+subfinder -d sitename.com -all -silent -o subfinder.txt
 
 **amass**
-amass= (amass enum -d sitName filename.txt
-sudo systemctl restart snapd apparmor
+sudo systemctl restart snapd.apparmor
 sudo systemctl restart snapd
+export PATH=$HOME/go/bin:$PATH
+source ~/.zshrc
+which amass
 
-amass enum -d sitname -o filename.txt
+amass enum -d sitename.com -o amass.txt
 
 **Flitter amass data**
-grep -E '\b([a-zA-zA-zA-Z0-9_-]+\.)+sitname\.com\b' amass.txt > amass_final.txt
-
-grep -oE '\b([a-zA-zA-zA-Z0-9_-]+\.)+sitname\.com\b' amass.txt > amass_final.txt
+cat amass_final.txt subfinder.txt | sort -u > subdomains.txt
 
 **DNSX**
-dnsx -d sitname -w/usr/share/wordlists/seclists/discovery/DNS/subdomains - toptmillion -5000.txt| tee ~ fileName
+dnsx -d sitename.com \
+-w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt \
+| tee dnsx.txt
 
 **Flitter All subdomain**
 
-cat amass_final.txt dnsx.txt subfinder.txt | sort -u > final_subdomains.txt
+cat amass.txt dnsx.txt subfinder.txt | sort -u > final_subdomains.txt
 
 **HTTPS**
-export PATH = $HOME /go/bin: $ PATH source ~ / .zshrc
+
+export PATH=$HOME/go/bin:$PATH
+source ~/.zshrc
 which httpx
 
-cat final_subdomains.txt | httpx -o targets.txt -status-code -location -title -tech-detect
+httpx -l final_subdomains.txt \
+-status-code -location -title -tech-detect \
+-o httpx.txt
 
 **Port scan**
 
-Nmap - sudo nmap -sS -sV sitName
-naabu - sudo -host SitName
+sudo nmap -sS -sV sitename.com
+sudo naabu -host sitename.com -o naabu.txt
 
 **Directory Bruteforcing**
 
-Feroxbuster
+**Feroxbuster**
 
-feroxbuster -u sitName -w /usr/share/wordlists/seclists/Discovery/web-content/raft-samll-directories.txt -- threads 100 -c 404
+feroxbuster -u https://sitename.com \
+-w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-small-directories.txt \
+-t 100 \
+--status-codes 200,301,403 \
+-o ferox.txt
 
-gobuster dir -u sitName -w /usr/share/wordlists/Discovery /Web-content |common.txt -o gobuster.results.txt
+ **Gobuster**
+
+gobuster dir -u https://sitename.com \
+-w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt \
+-b 403 \
+-o gobuster.txt
+
 
 **Firewall**
 
-wafwoof sitName
+wafw00f sitename.com
 
 **Bug Finding**
 
-nuclei
-nuclri -target sitName
+**nuclei**
 
-katana -js -u sitName -o katana.txt -aff
+nuclei -u sitename.com -o nuclei.txt
+
+katana -u sitename.com -js -aff -o katana.txt
 
 
 
